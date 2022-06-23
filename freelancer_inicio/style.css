@@ -183,7 +183,7 @@ h1,h2,h3{
 }
 .service p{
     line-height: 2;
-    text-align: center;
+    align-items: center;
 
    
  
