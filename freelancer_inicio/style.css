@@ -13,7 +13,7 @@
 html{
     font-size: 62.5%;
     box-sizing: border-box;
-    scroll-snap-type: y mandatory;
+   
 }
 *, *:before, *:after{
     box-sizing: inherit;
@@ -21,7 +21,7 @@ html{
 body{
     font-size: 16px;
     font-family: var(--font);
-   background-image:linear-gradient(to top,var(--ligth-gray) 0%, var(--white) 100%);  /*color de fondo*/
+    background-image:linear-gradient(to top,var(--ligth-gray) 0%, var(--white) 100%);  /*color de fondo*/
 }
 .container{
     max-width:120rem;

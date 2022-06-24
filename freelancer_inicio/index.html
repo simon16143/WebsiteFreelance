@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="preload" href="./css/style.css" as="style">
+    <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -114,25 +114,25 @@
             <div class="container-field">
                 <div class="field">
                     <label>Nombre</label>
-                    <input class="input-text" type="text" placeholder="Tu Nombre"/>
+                    <input class="input-text" type="text" placeholder="Tu Nombre" id="txtNombre"/>
                 </div>
                 <div class="field">   
                     <label>Teléfono</label>
-                    <input class="input-text" type="tel" placeholder="Tu Teléfono"/>
+                    <input class="input-text" type="tel" placeholder="Tu Teléfono" id="txtTelefono"/>
                 </div>
                 <div class="field">
                     <label>Correo</label>
-                    <input class="input-text" type="email" placeholder="Tu E-mail"/>
+                    <input class="input-text" type="email" placeholder="Tu E-mail" id="txtEmail"/>
                 </div>
                 <div class="field">
                     <label>Mensaje</label>
-                    <textarea class="input-text"></textarea>
+                    <textarea class="input-text" id="txtMensaje"></textarea>
                 </div> 
         </div> <!--Este es el contenedor de campos-->
             <div class="right-align flex">
-               <input class="button w-100" type="submit" value="Enviar">
+               <input class="button w-100" type="button" value="Enviar" id="btnEnviar">
             </div>
-         
+
         </fieldset>
     </form>
 </section>  
@@ -143,3 +143,40 @@
 
 </body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $("#btnEnviar").click(function (i) {
+          
+                   var datos = 'nombre='+  $("#txtNombre").val() + '&email=' + $("#txtEmail").val() + '&telefono=' + $("#txtTelefono").val() + '&mensaje=' + $("#txtMensaje").val();
+                   $.ajax({
+						type: "POST",
+						url: "./enviarEmail.php",
+						data: datos,
+						success: function(data) {
+                            if(data == ""){
+                                alert("ENVIO CORRECTO");
+                                $("#txtNombre").val("");
+                                $("#txtEmail").val("");
+                                $("#txtTelefono").val("");
+                                $("#txtMensaje").val("");
+                            }else{
+                                alert("ERROR AL ENVIAR EL CORREO");
+                            }
+							
+						},
+						error: function() {
+							alert("ERROR AL ENVIAR EL CORREO");
+						}
+					});
+
+
+        });
+      
+
+    });
+
+</script>
