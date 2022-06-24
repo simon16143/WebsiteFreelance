@@ -30,15 +30,15 @@ $mail = new PHPMailer\PHPMailer\PHPMailer();
 $mail->IsSMTP();
 
 //Configuracion servidor mail
-$mail->From = "simonlopez16143@outlook.com"; //remitente
+$mail->From = ""; //remitente
 $mail->FromName = "Potential Customer";
 $mail->SMTPAuth = true;
 $mail->IsHTML(true);
 $mail->SMTPSecure = 'STARTTLS'; //seguridad
 $mail->Host = "smtp.office365.com"; // servidor smtp
 $mail->Port = 587; //puerto
-$mail->Username ='simonlopez16143@outlook.com'; //nombre usuario
-$mail->Password = 's18247256'; //contraseña
+$mail->Username =''; //nombre usuario
+$mail->Password = ''; //contraseña
 $mail->AddAddress('comunicaciones@uraniosoluciones.com.co');
 $mail->Subject = "Potential Customer";
 $mail->Body = $message;
